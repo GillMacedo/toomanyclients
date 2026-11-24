@@ -1,0 +1,13 @@
+{
+  "name": "toomanyclients",
+  "version": "0.1.0",
+  "description": "Add up the Postgres connections Go programs can open across their Kubernetes pods (database/sql SetMaxOpenConns, pgxpool MaxConns and pool_max_conns, HPA and KEDA maximums, rollout surge) and compare the total with max_connections, before pods fail with too many clients already. Reads files offline.",
+  "author": {
+    "name": "Giulliano Macedo",
+    "url": "https://github.com/GillMacedo"
+  },
+  "homepage": "https://github.com/GillMacedo/toomanyclients",
+  "repository": "https://github.com/GillMacedo/toomanyclients",
+  "license": "MIT",
+  "keywords": ["postgres", "max-connections", "connection-pool", "pgx", "pgxpool", "database-sql", "kubernetes", "hpa", "go"]
+}

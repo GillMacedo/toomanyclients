@@ -1,0 +1,28 @@
+[
+  {
+    "skills": ["checking-postgres-connection-budget"],
+    "query": "Our api pods started logging 'FATAL: sorry, too many clients already' after we raised the HPA max to 8. Which settings add up to too many connections?",
+    "expected_behavior": [
+      "Runs run.sh on the Go code and the rendered manifests",
+      "Explains TC101 with each workload's pods times pool size and the Postgres limit minus reserved slots",
+      "Proposes a pool size or HPA maximum that fits, without editing files unasked"
+    ]
+  },
+  {
+    "skills": ["checking-postgres-connection-budget"],
+    "query": "We use pgxpool.New with the default settings. Is that safe with 10 replicas on 32-core nodes?",
+    "expected_behavior": [
+      "Runs run.sh with --node-cpus 32, or explains TC104",
+      "Says pgxpool's default MaxConns is the larger of 4 and runtime.NumCPU, which is the node's CPU count, not the CPU limit",
+      "Suggests setting pool_max_conns or config.MaxConns"
+    ]
+  },
+  {
+    "skills": ["checking-postgres-connection-budget"],
+    "query": "toomanyclients exited 3 on our repo. Does that mean our pools are fine?",
+    "expected_behavior": [
+      "Says exit 3 means there is no result, so it can't say the pools fit",
+      "Reads the error and fixes the input, such as rendering the Helm chart again or passing narrower paths"
+    ]
+  }
+]

@@ -1,0 +1,22 @@
+# Written for toomanyclients' tests: go-clean-template ships docker-compose,
+# not Kubernetes manifests. PG_POOL_MAX matches its docker-compose.yml.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+        - name: app
+          image: go-clean-template:latest
+          env:
+            - name: PG_POOL_MAX
+              value: "2"

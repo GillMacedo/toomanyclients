@@ -1,0 +1,12 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: shop-db
+  namespace: shop
+spec:
+  instances: 2
+  postgresql:
+    parameters:
+      max_connections: "100"
+  storage:
+    size: 10Gi

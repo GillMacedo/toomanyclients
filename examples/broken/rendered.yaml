@@ -1,0 +1,1 @@
+Error: INSTALLATION FAILED: template: shop/templates/api.yaml:31:20: executing "shop/templates/api.yaml" at <.Values.db.maxOpenConns>: nil pointer evaluating interface {}.maxOpenConns

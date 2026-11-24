@@ -1,0 +1,14 @@
+{
+  "name": "toomanyclients-marketplace",
+  "description": "Marketplace for toomanyclients, which checks that Go programs' Postgres pools fit max_connections across their Kubernetes pods.",
+  "owner": {
+    "name": "Giulliano Macedo"
+  },
+  "plugins": [
+    {
+      "name": "toomanyclients",
+      "source": "./plugin",
+      "description": "Add up database/sql and pgxpool pool sizes across Kubernetes replicas, HPA maximums and rollout surge, and compare the total with Postgres max_connections."
+    }
+  ]
+}
